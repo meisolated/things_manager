@@ -5,6 +5,12 @@ import json
 import pyperclip
 
 
+# retrive json data
+with open('things.json', 'r') as things:
+    x = json.load(things)
+
+
+
 def Convert(string):
     list1=[]
     list1[:0]=string
@@ -15,11 +21,17 @@ def on_press(key):
     global let_text
     let_text = str(let_text) + str(key)
     let_text = let_text.replace("'", '')
-    if 'github' in let_text:
-        clip = 'TOKEN BITCH'
-        pyperclip.copy(clip)
-        spam = pyperclip.paste()
-        let_text = ''
+    # if 'github' in let_text:
+    #     clip = 'TOKEN BITCH'
+    #     pyperclip.copy(clip)
+    #     spam = pyperclip.paste()
+    #################################
+    for thing in x:
+        if thing in let_text:
+            clip = x[thing]
+            pyperclip.copy(clip)
+            pyperclip.paste()
+            let_text = ''
 
 with Listener(on_press=on_press) as listener:
     listener.join()
